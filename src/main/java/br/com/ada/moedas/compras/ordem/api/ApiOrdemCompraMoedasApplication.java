@@ -1,4 +1,4 @@
-package br.com.ada.moedas.compras.ordem.ApiOrdemCompraMoedas;
+package br.com.ada.moedas.compras.ordem.api;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

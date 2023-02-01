@@ -1,4 +1,4 @@
-package br.com.ada.moedas.compras.ordem.ApiOrdemCompraMoedas;
+package br.com.ada.moedas.compras.ordem.api;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
