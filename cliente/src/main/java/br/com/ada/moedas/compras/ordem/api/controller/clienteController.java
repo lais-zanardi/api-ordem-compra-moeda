@@ -11,7 +11,7 @@ import org.springframework.web.server.ResponseStatusException;
 public class clienteController {
     @PostMapping("/{cpf}")
     public ResponseEntity<Cliente> salvar(@PathVariable String cpf){
-        if (cpf == null || cpf == null) {
+        if (cpf == null || cpf.isBlank()) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Não foi informada uma pessoa válida");
         }
         String clearCpf = cpf.replaceAll("[\\.-]", "");
