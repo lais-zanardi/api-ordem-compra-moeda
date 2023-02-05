@@ -19,4 +19,12 @@ public class CompraDTO {
         compraDto.setNumeroAgência(compra.getNumeroAgência());
         return compraDto;
     }
+    public Compra toEntity(){
+        Compra compra = new Compra();
+        compra.setId(id);
+        compra.setTipoMoeda(tipoMoeda);
+        compra.setValorMoeda(valorMoeda);
+        compra.setNumeroAgência(numeroAgência);
+        return compra;
+    }
 }

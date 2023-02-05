@@ -1,5 +1,7 @@
 package br.com.ada.moedas.compras.ordem.api.model;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import lombok.Data;
 
@@ -9,6 +11,9 @@ import java.time.LocalDate;
 @Data
 public class Cliente {
     @Id
+    @GeneratedValue
+    private Long id;
+    @Column(name="CPF")
     private String cpf;
     private String nome;
     private LocalDate dataNascimento;

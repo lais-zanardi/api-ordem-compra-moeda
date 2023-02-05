@@ -1,6 +1,5 @@
 package br.com.ada.moedas.compras.ordem.api.controller;
 
-import br.com.ada.moedas.compras.ordem.api.model.Cliente;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
