@@ -1,6 +1,5 @@
-package br.com.ada.moedas.compras.ordem.api.service;
+package br.com.ada.moedas.compras.ordem.api;
 
-import br.com.ada.moedas.compras.ordem.api.model.Cliente;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Service;

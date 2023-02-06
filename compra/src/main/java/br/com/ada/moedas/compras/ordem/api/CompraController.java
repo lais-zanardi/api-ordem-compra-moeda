@@ -1,18 +1,20 @@
 package br.com.ada.moedas.compras.ordem.api;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.net.URI;
-
+@RequiredArgsConstructor
 @RestController
 @RequestMapping("/api/compra")
 public class CompraController {
+    private final CompraService service;
     @PostMapping
     public ResponseEntity<Void> salvar(@RequestBody CompraDTO compra){
-        if (!compra.getTipoMoeda().equalsIgnoreCase("usd") || !compra.getTipoMoeda().equalsIgnoreCase("eur")){
+        if (!compra.getTipoMoeda().equalsIgnoreCase("USD") || !compra.getTipoMoeda().equalsIgnoreCase("EUR")){
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Apenas trabalhamos com USD ou EUR");
         }
         if (compra.getNumeroAgência() == null){

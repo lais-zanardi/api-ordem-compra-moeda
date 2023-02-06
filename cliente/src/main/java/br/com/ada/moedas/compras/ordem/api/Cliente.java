@@ -1,4 +1,4 @@
-package br.com.ada.moedas.compras.ordem.api.model;
+package br.com.ada.moedas.compras.ordem.api;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

@@ -17,4 +17,5 @@ public class CompraService {
     public void incluir (Compra compra){
         compraRepository.save(compra);
     }
+
 }

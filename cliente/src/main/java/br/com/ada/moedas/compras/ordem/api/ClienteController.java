@@ -1,4 +1,4 @@
-package br.com.ada.moedas.compras.ordem.api.controller;
+package br.com.ada.moedas.compras.ordem.api;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -7,7 +7,7 @@ import org.springframework.web.server.ResponseStatusException;
 
 @RestController
 @RequestMapping("/api/cliente")
-public class clienteController {
+public class ClienteController {
     @PostMapping("/{cpf}")
     public ResponseEntity<Cliente> salvar(@PathVariable String cpf){
         if (cpf == null || cpf.isBlank()) {

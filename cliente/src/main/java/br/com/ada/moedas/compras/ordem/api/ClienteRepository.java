@@ -1,6 +1,5 @@
-package br.com.ada.moedas.compras.ordem.api.repository;
+package br.com.ada.moedas.compras.ordem.api;
 
-import br.com.ada.moedas.compras.ordem.api.model.Cliente;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
