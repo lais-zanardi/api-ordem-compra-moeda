@@ -27,7 +27,7 @@ public class ClienteController {
         return ResponseEntity.ok(teste);
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/{cpf}")
     public ResponseEntity<ClienteDTO> getById(@PathVariable String cpf) {
         if (cpf == null) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "CPF não informado");
