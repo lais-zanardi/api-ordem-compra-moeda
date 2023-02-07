@@ -1,9 +1,6 @@
-package br.com.ada.moedas.compras.ordem.api.dto;
+package br.com.ada.moedas.compras.ordem.api;
 
-import br.com.ada.moedas.compras.ordem.api.model.Cliente;
 import lombok.Data;
-
-import java.time.LocalDate;
 
 @Data
 public class ClienteDTO {
