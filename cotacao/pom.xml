@@ -3,6 +3,7 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
+
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
@@ -10,10 +11,10 @@
         <relativePath/>
     </parent>
     <groupId>br.com.ada.moedas.compras.ordem</groupId>
-    <artifactId>ApiOrdemCompraMoedas</artifactId>
+    <artifactId>cotacao</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>cotacao</name>
-    <description>API REST para Ordem de Compra de Moedas Estrangeiras</description>
+
     <dependencies>
         <dependency>
             <groupId>jakarta.persistence</groupId>
@@ -46,14 +47,27 @@
             <artifactId>spring-boot-autoconfigure</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-autoconfigure</artifactId>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+            <version>4.0.0</version>
         </dependency>
     </dependencies>
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <spring-cloud.version>2021.0.5</spring-cloud.version>
     </properties>
     <build>
         <plugins>
@@ -71,5 +85,6 @@
             </plugin>
         </plugins>
     </build>
+
 
 </project>
