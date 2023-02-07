@@ -1,8 +1,5 @@
-package br.com.ada.moedas.compras.ordem.api.controller;
+package br.com.ada.moedas.compras.ordem.api;
 
-import br.com.ada.moedas.compras.ordem.api.dto.ClienteDTO;
-import br.com.ada.moedas.compras.ordem.api.model.Cliente;
-import br.com.ada.moedas.compras.ordem.api.service.ClienteService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -32,9 +29,9 @@ public class ClienteController {
         if (cpf == null) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "CPF não informado");
         }
-        Cliente cliente = service.getById(Long.valueOf(cpf))
+        Cliente entity = service.getById(cpf)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Não foi localizado um cliente com este CPF"));
-        return ResponseEntity.ok(ClienteDTO.of(cliente));
+        return ResponseEntity.ok(ClienteDTO.of(entity));
     }
 }
 

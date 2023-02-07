@@ -9,14 +9,14 @@ import java.util.Optional;
 @RequiredArgsConstructor
 @Service
 public class ClienteService {
-    private final CrudRepository<Cliente, Long> clienteRepository;
+    private final CrudRepository<Cliente, String> repository;
 
-    public Optional<Cliente> getById(Long id) {
-        return clienteRepository.findById(id);
+    public Optional<Cliente> getById(String cpf) {
+        return repository.findById(cpf);
     }
 
 
     public void incluir(Cliente cliente) {
-        clienteRepository.save(cliente);
+        repository.save(cliente);
     }
 }
