@@ -10,7 +10,7 @@ import org.springframework.web.client.RestTemplate;
 @RequiredArgsConstructor
 @Component
 public class ClienteApiClient {
-    private final static String ENDPOINT = "http://localhost:8080/api/cliente/{id}";
+    private final static String ENDPOINT = "http://{host}:{port}/api/cliente/{cpf}";
     private final EurekaClient eurekaClient;
     private final RestTemplate restTemplate;
 
