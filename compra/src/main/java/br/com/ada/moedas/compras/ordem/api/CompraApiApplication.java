@@ -4,10 +4,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class ApiOrdemCompraMoedasApplication {
+public class CompraApiApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(ApiOrdemCompraMoedasApplication.class, args);
+		SpringApplication.run(CompraApiApplication.class, args);
 	}
 
 }
