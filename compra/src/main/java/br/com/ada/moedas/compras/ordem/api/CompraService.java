@@ -1,8 +1,11 @@
 package br.com.ada.moedas.compras.ordem.api;
 
+import br.com.ada.moedas.compras.ordem.CompraInvalidaException;
+import br.com.ada.moedas.compras.ordem.EntidadeDuplicadaException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestClientException;
 
 import java.util.Optional;
 
@@ -17,22 +20,30 @@ public class CompraService {
         return repository.findById(id);
     }
 
-    public void incluir(Compra entity) {
+    public void incluir(Compra entity) throws EntidadeDuplicadaException, CompraInvalidaException {
+
+        // Confirma se compra não está duplicada (consulta repository e retorna exception caso esteja)
         if(repository.existsById(entity.getId())) {
             throw new EntidadeDuplicadaException();
         }
-        repository.save(compra);
+
+        //Confirma se o cliente existe (consultar API Cliente)
+        try {
+            if(!clienteApiClient.existeCliente(entity.getCliente())) {
+                throw new CompraInvalidaException("Cliente não localizado");
+            }
+        } catch (RestClientException e) {
+            throw new CompraInvalidaException("API Cliente indisponível!");
+        }
+
+        // Confirma se a moeda consultada é USD ou EUR (consultar API Cotação)
+        try {
+            if(!cotacaoApiClient.cotacaoDisponivel(entity.getTipoMoeda())) {
+                throw new CompraInvalidaException("Moeda inválida");
+            }
+        } catch (RestClientException e) {
+            throw new CompraInvalidaException("API Cotação indisponível!");
+        }
+        repository.save(entity);
     }
-
-
-    /**
-     * Para realizar a compra de moedas é necessário:
-     * - Confirmar que compra não está duplicada (consulta repository e retorna exception caso esteja)
-     * - Confirmar que o cliente existe (consultar API Cliente)
-     * - Confirmar que a moeda consultada é USD ou EUR (consultar API Cotação)
-     */
-
-
-
-
 }
