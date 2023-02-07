@@ -1,6 +1,6 @@
 package br.com.ada.moedas.compras.ordem.api;
 
-import br.com.ada.moedas.compras.ordem.CotacaoIndisponivelException;
+import br.com.ada.moedas.compras.ordem.CompraInvalidaException;
 import br.com.ada.moedas.compras.ordem.EntidadeDuplicadaException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.repository.CrudRepository;
@@ -20,7 +20,7 @@ public class CompraService {
         return repository.findById(id);
     }
 
-    public void incluir(Compra entity) throws EntidadeDuplicadaException, CotacaoIndisponivelException, CompraInvalidaException {
+    public void incluir(Compra entity) throws EntidadeDuplicadaException, CompraInvalidaException {
 
         // Confirma se compra não está duplicada (consulta repository e retorna exception caso esteja)
         if(repository.existsById(entity.getId())) {
@@ -39,23 +39,11 @@ public class CompraService {
         // Confirma se a moeda consultada é USD ou EUR (consultar API Cotação)
         try {
             if(!cotacaoApiClient.cotacaoDisponivel(entity.getTipoMoeda())) {
-                throw new CotacaoIndisponivelException("Moeda inválida");
+                throw new CompraInvalidaException("Moeda inválida");
             }
         } catch (RestClientException e) {
             throw new CompraInvalidaException("API Cotação indisponível!");
         }
         repository.save(entity);
     }
-
-
-    /**
-     * Para realizar a compra de moedas é necessário:
-
-     * -
-     * -
-     */
-
-
-
-
 }

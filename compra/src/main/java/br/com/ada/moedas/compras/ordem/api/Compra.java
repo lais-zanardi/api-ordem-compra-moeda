@@ -17,5 +17,6 @@ public class Compra {
     private BigDecimal valorMoeda;
     private Integer numeroAgência;
     private String cliente;
+    private String cotacao;
 
 }
