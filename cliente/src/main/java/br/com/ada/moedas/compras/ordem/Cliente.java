@@ -1,4 +1,4 @@
-package br.com.ada.moedas.compras.ordem.api;
+package br.com.ada.moedas.compras.ordem;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;

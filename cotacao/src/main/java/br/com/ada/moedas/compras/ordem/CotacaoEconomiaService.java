@@ -1,4 +1,4 @@
-package br.com.ada.moedas.compras.ordem.api;
+package br.com.ada.moedas.compras.ordem;
 
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.stereotype.Service;

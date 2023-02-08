@@ -1,13 +1,13 @@
-package br.com.ada.moedas.compras.ordem.api;
+package br.com.ada.moedas.compras.ordem;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class CotacaoApiApplication {
+public class CompraApiApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(CotacaoApiApplication.class, args);
+		SpringApplication.run(CompraApiApplication.class, args);
 	}
 
 }

@@ -1,7 +1,5 @@
-package br.com.ada.moedas.compras.ordem.api;
+package br.com.ada.moedas.compras.ordem;
 
-import br.com.ada.moedas.compras.ordem.CompraInvalidaException;
-import br.com.ada.moedas.compras.ordem.EntidadeDuplicadaException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Service;
